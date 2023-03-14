@@ -29,3 +29,59 @@ int main() {
 5. `a` 변수에 할당된 값을 출력한다.
 6. `main` 함수를 종료 하도록 한다. 즉, 실행된 프로세스를 정상적으로 마무리 한다는 의미를 가진다.
     1. C++ 은 cpp 파일 하나 당 하나의 `main` 함수를 만들 수 있다.
+
+---
+
+### `typedef`
+
+> `typedef` 란 타입의 이름을 별칭으로 정의하고, 실제 타입이름을 설정한 별칭으로 사용할 수 있게끔 하는
+> 예약어다.
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+typedef int i; // --- (1)
+
+int main() {
+    i a = 1; // --- (2)
+    cin >> a;
+    cout << a << "\n";
+    return 0;
+}
+```
+
+#### 코드 설명
+
+1. `int` 의 타입을 `i` 라는 별칭으로 재정의한다.
+2. `main` 함수 내부에서 `int` 타입의 변수 `a` 를 `i a = 1;` 로 선언 및 초기화를 진행한다.
+
+---
+
+### `define`
+
+> 상수 및 메크로 등을 정의할 수 있는 예약어이다.
+
+```c++
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define PI 3.14159
+#define loop(x, n) for(int x = 0; x < n; x++)
+
+int main() {
+    // 원주기율 출력
+    count << PI << "\n";
+    
+    // 정의된 루프 함수 호출
+    int sum = 0;
+    loop(i, 10) {
+        sum += i;
+    }
+    
+    // 결과 출력
+    cout << sum << "\n";
+    
+    return 0;
+}
+```
