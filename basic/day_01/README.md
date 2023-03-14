@@ -85,3 +85,34 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+### STL (Standard Template Library)
+
+> C++ dms STL 을 제공하는데, 이는 자료구조나 함수 등을 제공한다.
+
+#### 알고리즘
+
+> 정렬 탐색 등에 관한 함수로 이뤄져 있다.
+
+#### 컨테이너
+
+> C++ 에서 제공하는 자료구조를 의미한다.
+
+1. 시퀀스 컨테이너 : 데이터를 단순히 저장해 놓는 자료구조로
+    - `array`, `vector`, `deque`, `forward_list`, `list`
+2. 연관 컨테이너 : 자료가 저장됨에 따라 자동 정렬되는 자료구조. 중복키가 가능한 자료구조는 앞에 `multi` 라는 키워드가 붙는다.
+    - `set`, `map`, `multiset`, `multimap`
+3. 정렬되지 않은 연관 컨테이너 : 자료가 저장됨에 따라 정렬이 되지 않는 자료구조.
+    - `unordered_set`, `unordered_map`, `unordered_multiset`, `unordered_multimap`
+4. 컨테이너 어댑터 : 시퀀스 컨테이너를 이용해 만든 자료구조로 `stack`, `queue` 로 만들어졌다.
+    - `priority_queue` 는 `vector` 를 이용해 Heap 자료구조를 만든다.
+
+#### 이터레이터
+
+> 추후 정리
+
+#### 펑터
+
+> 펑터란 함수 호출 연산자를 오버로드하는 클래스의 인스턴스를 뜻한다.
