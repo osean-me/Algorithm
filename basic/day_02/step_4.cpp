@@ -14,17 +14,17 @@ int aa, bb;
 string s;
 
 int main() {
-    scanf("%d %lf %c %ld", &a, &b, &c, &lf);
-    printf("%d\n", a);
-    printf("%lf\n", b);
-    printf("%c\n", c);
-    printf("%lf\n", lf);
+  scanf("%d %lf %c %ld", &a, &b, &c, &lf);
+  printf("%d\n", a);
+  printf("%lf\n", b);
+  printf("%c\n", c);
+  printf("%lf\n", lf);
 
-    scanf("%d.%d\n", &aa, &bb);
-    printf("%d.%d\n", aa, bb);
+  scanf("%d.%d\n", &aa, &bb);
+  printf("%d.%d\n", aa, bb);
 
-    getline(cin, s);
-    cout << s << "\n";
+  getline(cin, s);
+  cout << s << "\n";
 
-    return 0;
+  return 0;
 }
