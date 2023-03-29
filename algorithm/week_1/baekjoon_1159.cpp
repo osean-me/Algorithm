@@ -7,7 +7,7 @@
 using namespace std;
 
 int playerCnt;
-string str, result;
+string str, nameToCount;
 vector<string> players, collection;
 
 void add(vector<string> v) {
@@ -17,8 +17,8 @@ void add(vector<string> v) {
     }
   }
   char lastName = v[0][0];
-  if (result.find(lastName) == string::npos) {
-    result += lastName;
+  if (nameToCount.find(lastName) == string::npos) {
+    nameToCount += lastName;
   }
 }
 
@@ -44,9 +44,9 @@ int main() {
   cout << "\n";
   sort(players.begin(), players.end());
   comb(-1, collection);
-  if (result.length() == 0) {
+  if (nameToCount.length() == 0) {
     cout << "PREDAJA";
     return 0;
   }
-  cout << result << "\n";
+  cout << nameToCount << "\n";
 }
