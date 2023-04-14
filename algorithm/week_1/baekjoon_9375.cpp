@@ -54,26 +54,32 @@ void getTypeToClothes() {
     }
 }
 
-void recursive(int typeIndex) {
-    if (typeIndex > cnt) return;
-    string type = types[typeIndex];
-    if (type == "") recursive(++typeIndex);
-    for (string clothe: clothes[typeIndex]) {
-        cout << "index : " << typeIndex << " / " << type << " : " << clothe << "\n";
-        recursive(++typeIndex);
-    }
-    cout << "\n";
-}
-
 int main() {
     int testcase = 0;
     cin >> testcase;
     for (int i = 0; i < testcase; i++) {
         getTypeToClothes();
         int typeSize = sizeof(types) / sizeof(types[0]);
-        recursive(1);
+        vector<string> v;
+        map<int, string> t = map<int, string>();
+        for (int i = 0; i < typeSize; i++) {
+            if (types[i] != "") t[i] = types[i];
+        }
+        for (pair<int, string> p: t) {
+            cout << p.first << " : " << p.second << "\n";
+        }
         // 초기화
         fill_n(types, typeSize, "");
         fill_n(clothes, typeSize, set<string>());
     }
 }
+/*
+1
+6
+hat headgear
+sunglasses eyewear
+turban headgear
+mask face
+lip face
+makeup face
+ */
