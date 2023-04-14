@@ -55,11 +55,12 @@ void getTypeToClothes() {
 }
 
 void recursive(int typeIndex) {
-    if (typeIndex >= cnt) return;
+    if (typeIndex > cnt) return;
     string type = types[typeIndex];
+    if (type == "") recursive(++typeIndex);
     for (string clothe: clothes[typeIndex]) {
-        cout << "k : " << typeIndex << " / " << type << " : " << clothe << "\n";
-        recursive(typeIndex + 1);
+        cout << "index : " << typeIndex << " / " << type << " : " << clothe << "\n";
+        recursive(++typeIndex);
     }
     cout << "\n";
 }
