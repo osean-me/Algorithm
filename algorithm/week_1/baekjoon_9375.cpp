@@ -9,6 +9,10 @@ int cnt = 0;
 string types[35] = {};
 set<string> clothes[35] = {};
 
+/**
+ * 의상 및 의류 자르기
+ * @return [0] : 의상, [1] : 의류
+ */
 vector<string> split() {
     string input = "";
     string delimeter = " ";
@@ -25,6 +29,11 @@ vector<string> split() {
     return result;
 }
 
+/**
+ * 주어진 의상 및 의류 별 데이터 맵핑
+ * @param types 의류 리스트
+ * @param clothes 의류 인덱스 별 의상 리스트
+ */
 void getTypeToClothes() {
     cin >> cnt;
     map<string, int> typeMap = map<string, int>();
@@ -45,17 +54,25 @@ void getTypeToClothes() {
     }
 }
 
+void recursive(int typeIndex) {
+    if (typeIndex >= cnt) return;
+    string type = types[typeIndex];
+    for (string clothe: clothes[typeIndex]) {
+        cout << "k : " << typeIndex << " / " << type << " : " << clothe << "\n";
+        recursive(typeIndex + 1);
+    }
+    cout << "\n";
+}
+
 int main() {
     int testcase = 0;
     cin >> testcase;
     for (int i = 0; i < testcase; i++) {
         getTypeToClothes();
         int typeSize = sizeof(types) / sizeof(types[0]);
-        cout << "\n";
-        for (int k = 0; k < typeSize + i; k++) {
-            for (string clothe: clothes[k]) {
-                cout << "k : " << k << " / " << types[k] << " : " << clothe << "\n";
-            }
-        }
+        recursive(1);
+        // 초기화
+        fill_n(types, typeSize, "");
+        fill_n(clothes, typeSize, set<string>());
     }
 }
