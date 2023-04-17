@@ -5,27 +5,26 @@
 
 using namespace std;
 
-long long n, m = 0;
-long long arr[100010] = {};
+long long n, m, cnt = 0L;
+long long arr[10000010] = {};
 
 int main() {
     cin >> n >> m;
-    vector<int> idx = vector<int>();
     for (int i = 0; i < n; i++) {
-        int index = 0;
-        cin >> index;
-        arr[index]++;
-        idx.push_back(index);
+        long long input = 0L;
+        cin >> input;
+        arr[input]++;
     }
-    long long let = 0;
-    for (int i = 0; i < n; i++) {
-        int index = idx[i];
-        if (arr[index] == 0) continue;
-        long long second = m - index;
-        if (index != second && arr[second] > 0) {
-            let++;
-            arr[second] = 0;
-        }
+
+    int size = sizeof(arr) / sizeof(arr[0]);
+    for (int i = 0; i < size; i++) {
+        long r = m - i;
+        if (r < 0) continue;
+        if (arr[i] == 0 || arr[r] == 0) continue;
+        if (i == r) continue;
+        arr[i] = 0;
+        arr[r] = 0;
+        cnt++;
     }
-    cout << let;
+    cout << cnt;
 }
