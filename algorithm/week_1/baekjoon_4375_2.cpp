@@ -10,12 +10,12 @@ int n;
 
 int main() {
     while (scanf("%d", &n) != EOF) {
-        ll cnt = 1L, r = 1L;
+        ll cnt = 1L, plus = 10L, r = 1L;
         while (cnt % n != 0) {
-            cnt = (cnt % n) * 10 + 1;
+            cout << "cnt : " << cnt << "\n";
+            cnt += plus;
+            plus *= 10;
             r++;
         }
-        cout << r << "\n";
     }
-    return 0;
 }
