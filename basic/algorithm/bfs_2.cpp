@@ -35,7 +35,7 @@ int main() {
 
     // 지도 그리기
     for (int y = 0; y < n; y++) {
-        for (int x = 0; x < m; x++) cin >> a[x][y];
+        for (int x = 0; x < m; x++) cin >> a[y][x];
     }
     // 깊이 우선 탐색 시작
     bfs(sy, sx);
