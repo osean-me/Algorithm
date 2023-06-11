@@ -18,9 +18,7 @@ public class Baekjoon_4659 {
     // 모음이 3개 혹은 자음이 3개 연속으로 오면 안 된다.
     private static boolean solution_2(String password) {
         char[] chars = password.toCharArray();
-        if (password.length() < 3) {
-            return true;
-        } else {
+        if (password.length() >= 3) {
             for (int start = 0; start < chars.length; start++) {
                 String subString;
                 int end = (start + 3);
@@ -33,8 +31,8 @@ public class Baekjoon_4659 {
                     if (isVowel || isNotVowel) return false;
                 } else return true;
             }
-            return true;
         }
+        return true;
     }
 
     // 같은 글자가 연속적으로 두번 오면 안되나, ee 와 oo는 허용한다.
