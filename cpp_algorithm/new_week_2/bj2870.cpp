@@ -37,9 +37,14 @@ int main() {
                 }
             }
 
-            for (int j = start; j < end; j++) {
-                if (j == start && nums[j] == 0) continue;
-                nstr += to_string(nums[j]);
+            for (int j = start; j < end; j++) nstr += to_string(nums[j]);
+
+            // TODO 문자열의 앞이 0 인 경우 체크
+            size_t nonZero = nstr.find_first_not_of('0');
+            if (nonZero == string::npos) {
+                nstr = '0';
+            } else {
+                nstr = nstr.substr(nonZero);
             }
 
             adj.push_back(nstr);
@@ -49,6 +54,7 @@ int main() {
         nums = vector<int>(101, -1);
     }
 
+    // TODO 정렬 조건 로직 체크
     sort(adj.begin(), adj.end(), [](const string &a, const string &b) {
         if (a.size() == b.size()) return a < b;  // 길이가 같으면 사전순 비교
         return a.size() < b.size();              // 길이가 다르면 짧은 것이 작음
