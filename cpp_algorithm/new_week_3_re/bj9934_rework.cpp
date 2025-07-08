@@ -2,16 +2,14 @@
 
 using namespace std;
 
-int k, n;
-vector<char> nodes;
-vector<vector<char>> tree;
+int k;
+vector<int> nodes;
+vector<vector<int>> tree;
 
 void solution(int idx, int depth) {
     tree[depth].push_back(nodes[idx]);
 
-    if (depth == 0) {
-        return;
-    }
+    if (depth == 0) return;
 
     int next = depth - 1;
     int offset = (int)pow(2, next);
@@ -27,7 +25,7 @@ int main() {
     cin >> k;
     tree.resize(k);
 
-    n = ((int)pow(2, k)) - 1;
+    int n = (int)pow(2, k) - 1;
     nodes.resize(n);
     for (int i = 0; i < n; i++) cin >> nodes[i];
 
